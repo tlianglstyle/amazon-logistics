@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>亚马逊物流,通关赢大奖</title>
+	<link rel="Stylesheet" href="lib/index.css?id=8">
+    <script src="lib/easeljs-0.8.0.min.js"></script>
+    <script src="lib/tweenjs-0.6.0.min.js"></script>
+    <script src="lib/movieclip-0.8.0.min.js"></script>
+    <script src="lib/preloadjs-0.6.0.min.js"></script>
+    <script src="lib/jquery.1.4.js"></script>
+	<script src="a.js?id=2"></script>
+
+<script>
+	var canvas, stage, exportRoot;
+    var isWap;
+	var loadingMc;
+	var count=0;
+	var manifest;
+    var main;
+
+	function init() {
+		getEle('voice_bg').pause();
+		
+		canvas = document.getElementById("canvas");
+		
+		stage = new createjs.Stage(canvas);
+		exportRoot = new lib.a();
+		stage.addChild(exportRoot);
+		stage.update();
+		stage.enableMouseOver();
+		//exportRoot.addEventListener("mousedown",openmuisc);
+		createjs.Ticker.setFPS(30);
+		createjs.Ticker.addEventListener('tick', stage);
+		
+		
+		
+		//loading();
+		start();
+	}	
+	function openmuisc(){
+		music();
+		getEle('btn_music').style.display='block';
+		voice(getEle("voice_bg"),0.2,0);
+		exportRoot.removeEventListener("mousedown",openmuisc);
+	
+	}
+	function start(){
+		images = images||{};
+		manifest = [
+		{src:"images/i_1_14.png", id:"i_1_14"},
+		{src:"images/i_1_5.png", id:"i_1_5"},
+		{src:"images/i_1_6.png", id:"i_1_6"},
+		{src:"images/i_1_7.png", id:"i_1_7"},
+		{src:"images/i_1_8.png", id:"i_1_8"},
+		{src:"images/i_1_bg.png", id:"i_1_bg"}
+		];
+		var loader = new createjs.LoadQueue(false);
+		loader.addEventListener("fileload", function(evt){if (evt.item.type == "image") { images[evt.item.id] = evt.result; }});
+		loader.addEventListener("complete", handleComplete1);
+		loader.loadManifest(manifest);
+	}
+	function handleComplete1() {
+		loadingMc = new lib.c_flag_loading();
+		exportRoot.addChild(loadingMc);
+		openmuisc();
+	}
+	function loading(){
+		loadingMc.stop();
+		console.log('loading');
+		//loadingMc=new lib.c_loading();
+		//loadingMc.x=0;
+		//
+		//exportRoot.addChild(loadingMc);
+		//exportRoot.stop();
+		
+		images = images||{};
+		manifest = [
+		{src:"images/_1_2_11.png", id:"_1_2_11"},
+		{src:"images/_1_3_14.png", id:"_1_3_14"},
+		{src:"images/bb1.jpg", id:"bb1"},
+		{src:"images/huang.png", id:"huang"},
+		{src:"images/i_1_1.png", id:"i_1_1"},
+		{src:"images/i_1_10.png", id:"i_1_10"},
+		{src:"images/i_1_11.png", id:"i_1_11"},
+		{src:"images/i_1_12.png", id:"i_1_12"},
+		{src:"images/i_1_13.png", id:"i_1_13"},
+		{src:"images/i_1_14.png", id:"i_1_14"},
+		{src:"images/i_1_15.png", id:"i_1_15"},
+		{src:"images/i_1_16.png", id:"i_1_16"},
+		{src:"images/i_1_2.png", id:"i_1_2"},
+		{src:"images/i_1_3.png", id:"i_1_3"},
+		{src:"images/i_1_4.png", id:"i_1_4"},
+		{src:"images/i_1_5.png", id:"i_1_5"},
+		{src:"images/i_1_6.png", id:"i_1_6"},
+		{src:"images/i_1_7.png", id:"i_1_7"},
+		{src:"images/i_1_8.png", id:"i_1_8"},
+		{src:"images/i_1_9.png", id:"i_1_9"},
+		{src:"images/i_1_bg.png", id:"i_1_bg"},
+		{src:"images/i_1_bg2.png", id:"i_1_bg2"},
+		{src:"images/i_2_1.png", id:"i_2_1"},
+		{src:"images/i_2_10.png", id:"i_2_10"},
+		{src:"images/i_2_12.png", id:"i_2_12"},
+		{src:"images/i_2_13.png", id:"i_2_13"},
+		{src:"images/i_2_15.png", id:"i_2_15"},
+		{src:"images/i_2_16.png", id:"i_2_16"},
+		{src:"images/i_2_2.png", id:"i_2_2"},
+		{src:"images/i_2_3.png", id:"i_2_3"},
+		{src:"images/i_2_4.png", id:"i_2_4"},
+		{src:"images/i_2_5.png", id:"i_2_5"},
+		{src:"images/i_2_6.png", id:"i_2_6"},
+		{src:"images/i_2_7.png", id:"i_2_7"},
+		{src:"images/i_2_8.png", id:"i_2_8"},
+		{src:"images/i_2_9.png", id:"i_2_9"},
+		{src:"images/i_2_bg.jpg", id:"i_2_bg"},
+		{src:"images/i_2_bg2.jpg", id:"i_2_bg2"},
+		{src:"images/i_3_1.png", id:"i_3_1"},
+		{src:"images/i_3_2.png", id:"i_3_2"},
+		{src:"images/i_3_3.png", id:"i_3_3"},
+		{src:"images/i_3_4.png", id:"i_3_4"},
+		{src:"images/i_3_5.png", id:"i_3_5"},
+		{src:"images/i_3_6.png", id:"i_3_6"},
+		{src:"images/i_3_7.png", id:"i_3_7"},
+		{src:"images/i_3_8.png", id:"i_3_8"},
+		{src:"images/i_3_b11g.png", id:"i_3_b11g"},
+		{src:"images/i_3_bg.png", id:"i_3_bg"},
+		{src:"images/i_4_1.png", id:"i_4_1"},
+		{src:"images/i_4_10.png", id:"i_4_10"},
+		{src:"images/i_4_11.png", id:"i_4_11"},
+		{src:"images/i_4_12.png", id:"i_4_12"},
+		{src:"images/i_4_13.png", id:"i_4_13"},
+		{src:"images/i_4_16.png", id:"i_4_16"},
+		{src:"images/i_4_17.png", id:"i_4_17"},
+		{src:"images/i_4_18.png", id:"i_4_18"},
+		{src:"images/i_4_2.png", id:"i_4_2"},
+		{src:"images/i_4_3.png", id:"i_4_3"},
+		{src:"images/i_4_4.png", id:"i_4_4"},
+		{src:"images/i_4_5.png", id:"i_4_5"},
+		{src:"images/i_4_6.png", id:"i_4_6"},
+		{src:"images/i_4_7.png", id:"i_4_7"},
+		{src:"images/i_4_8.png", id:"i_4_8"},
+		{src:"images/i_4_9.png", id:"i_4_9"},
+		{src:"images/i_4_bg.png", id:"i_4_bg"},
+		{src:"images/i_4_bg2.png", id:"i_4_bg2"},
+		{src:"images/i_5_1.png", id:"i_5_1"},
+		{src:"images/i_5_10.png", id:"i_5_10"},
+		{src:"images/i_5_11.png", id:"i_5_11"},
+		{src:"images/i_5_12.png", id:"i_5_12"},
+		{src:"images/i_5_13.png", id:"i_5_13"},
+		{src:"images/i_5_14.png", id:"i_5_14"},
+		{src:"images/i_5_15.png", id:"i_5_15"},
+		{src:"images/i_5_16.png", id:"i_5_16"},
+		{src:"images/i_5_17.png", id:"i_5_17"},
+		{src:"images/i_5_18.png", id:"i_5_18"},
+		{src:"images/i_5_19.png", id:"i_5_19"},
+		{src:"images/i_5_2.png", id:"i_5_2"},
+		{src:"images/i_5_20.png", id:"i_5_20"},
+		{src:"images/i_5_21.png", id:"i_5_21"},
+		{src:"images/i_5_22.png", id:"i_5_22"},
+		{src:"images/i_5_23.png", id:"i_5_23"},
+		{src:"images/i_5_24.png", id:"i_5_24"},
+		{src:"images/i_5_3.png", id:"i_5_3"},
+		{src:"images/i_5_4.png", id:"i_5_4"},
+		{src:"images/i_5_5.png", id:"i_5_5"},
+		{src:"images/i_5_6.png", id:"i_5_6"},
+		{src:"images/i_5_7.png", id:"i_5_7"},
+		{src:"images/i_5_8.png", id:"i_5_8"},
+		{src:"images/i_5_9.png", id:"i_5_9"},
+		{src:"images/i_5_bg.png", id:"i_5_bg"},
+		{src:"images/i_5_op.png", id:"i_5_op"},
+		{src:"images/i_6_1.png", id:"i_6_1"},
+		{src:"images/i_6_10.png", id:"i_6_10"},
+		{src:"images/i_6_11.png", id:"i_6_11"},
+		{src:"images/i_6_12.png", id:"i_6_12"},
+		{src:"images/i_6_14.png", id:"i_6_14"},
+		{src:"images/i_6_15.png", id:"i_6_15"},
+		{src:"images/i_6_16.png", id:"i_6_16"},
+		{src:"images/i_6_17.png", id:"i_6_17"},
+		{src:"images/i_6_18.png", id:"i_6_18"},
+		{src:"images/i_6_19.png", id:"i_6_19"},
+		{src:"images/i_6_1_1.png", id:"i_6_1_1"},
+		{src:"images/i_6_1_2.png", id:"i_6_1_2"},
+		{src:"images/i_6_2.png", id:"i_6_2"},
+		{src:"images/i_6_20.png", id:"i_6_20"},
+		{src:"images/i_6_21.png", id:"i_6_21"},
+		{src:"images/i_6_22.png", id:"i_6_22"},
+		{src:"images/i_6_23.png", id:"i_6_23"},
+		{src:"images/i_6_2_1.png", id:"i_6_2_1"},
+		{src:"images/i_6_2_2.png", id:"i_6_2_2"},
+		{src:"images/i_6_3.png", id:"i_6_3"},
+		{src:"images/i_6_3_1.png", id:"i_6_3_1"},
+		{src:"images/i_6_3_2.png", id:"i_6_3_2"},
+		{src:"images/i_6_4.png", id:"i_6_4"},
+		{src:"images/i_6_4_1.png", id:"i_6_4_1"},
+		{src:"images/i_6_4_2.png", id:"i_6_4_2"},
+		{src:"images/i_6_5.png", id:"i_6_5"},
+		{src:"images/i_6_5_1.png", id:"i_6_5_1"},
+		{src:"images/i_6_5_2.png", id:"i_6_5_2"},
+		{src:"images/i_6_7.png", id:"i_6_7"},
+		{src:"images/i_6_8.png", id:"i_6_8"},
+		{src:"images/i_6_9.png", id:"i_6_9"},
+		{src:"images/i_6_bg.png", id:"i_6_bg"},
+		{src:"images/i_6_btn.png", id:"i_6_btn"},
+		{src:"images/i_6_op.png", id:"i_6_op"},
+		{src:"images/i_shiban_1.png", id:"i_shiban_1"},
+		{src:"images/i_shiban_2.png", id:"i_shiban_2"},
+		{src:"images/i_shiban_3.png", id:"i_shiban_3"},
+		{src:"images/i_shiban_4.png", id:"i_shiban_4"},
+		{src:"images/i_shiban_5.png", id:"i_shiban_5"},
+		{src:"images/i_shiban_6.png", id:"i_shiban_6"},
+		{src:"images/tanhuang.png", id:"tanhuang"}
+		//,{src:"audio/bird.mp3", id:"y_1", type:createjs.AbstractLoader.SOUND}
+	];
+
+
+
+		var loader = new createjs.LoadQueue(false);
+		//loader.installPlugin(createjs.Sound); 
+		loader.addEventListener("fileload", handleFileLoad);
+		loader.addEventListener("complete", handleComplete);
+		loader.loadManifest(manifest);
+	}
+	function handleFileLoad(evt) {
+		if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+		count++;
+		//loadingMc.text.text=''+String(Math.floor(count/manifest.length*100))+'%';
+		loadingMc.loading.text.text=''+String(Math.floor(count/manifest.length*100))+'%';
+	}
+
+	var mouse={x:0,y:0,index:0};
+	var dashu={feiliao:false,water:false};
+	var forms_t={t:null,i:-100};
+	function handleComplete() {
+		getEle('forms').style.zoom=document.documentElement.clientWidth/640;
+		loadingMc.shu.addEventListener("mousedown",show_tree);
+		loadingMc.loading.visible=false;
+		
+		checkDevice();
+		iniEvent();
+		main(event);
+	}
+	function main(){
+		main = new lib.c_flag1();
+		exportRoot.addChild(main);
+	}
+	function getEle(id){return document.getElementById(id);}
+    function addClass(elm,newClass){
+		var classes = elm.className.split(' ');
+		var classIndex=hasClass(elm,newClass);
+		if(classIndex==-1){
+			classes.push(newClass);
+		};
+		elm.className = classes.join(' ');
+	 }
+
+    function hasClass(elm,className){
+            var classes = elm.className.split(' ');
+            for(var a in classes){
+                if(classes[a]==className){
+                    return a;
+                };
+            }
+            return -1;
+        }
+
+	function voice(o,volume,time){
+		if(isMusic){
+			o.currentTime=0;
+			o.volume=volume;
+			o.play();
+			if(time!=0){
+				setTimeout(function(){
+					o.pause();
+				},time);
+			}
+		}else{
+			getEle('voice_bg').pause();
+			getEle('voice_bird').pause();
+			getEle('voice_boli').pause();
+			getEle('voice_daji').pause();
+			getEle('voice_feng').pause();
+			getEle('voice_haishui').pause();
+			getEle('voice_ok1').pause();
+			getEle('voice_ok2').pause();
+			getEle('voice_za').pause();
+			getEle('voice_tanchu').pause();
+			getEle('voice_xiao').pause();
+			getEle('voice_fei').pause();
+			getEle('voice_chujing').pause();
+		}
+	}
+
+	function checkDevice(){
+            if (!navigator.userAgent.match(/mobile/i)) {
+                //alert("当前设备为pc");
+                isWap=false;
+            }else{
+                //alert("当前设备为移动");
+                isWap=true;
+            }
+        }
+	function iniEvent(){
+		if (createjs.Touch.isSupported()) {
+			createjs.Touch.enable(stage);
+		}
+	}
+	
+	function show_tree(event){
+		createjs.Ticker.setFPS(30);
+		event.preventDefault();
+		//voice(getEle("voice_boli"),1,0);
+		if(!dashu.feiliao){
+			exportRoot.removeChild(loadingMc);
+		}
+		
+		exportRoot.removeChild(main);
+		main = new lib.c_flag2();
+		exportRoot.addChild(main);
+		
+		if(!dashu.feiliao){
+			main.instance.visible=true;
+			main.instance_1.visible=false;
+			main.instance_2.visible=false;
+			main.instance_3.visible=true;
+			main.instance_4.visible=false;
+			main.instance_5.visible=false;
+			main.instance_4.stop();
+		}else if(!dashu.water){
+			createjs.Ticker.setFPS(40);
+			main.instance.visible=true;
+			main.instance_1.visible=true;
+			main.instance_2.visible=false;
+			main.instance_3.visible=false;
+			main.instance_4.visible=true;
+			main.instance_5.visible=false;
+			
+			main.instance_4.play();
+			createjs.Ticker.addEventListener("tick", tick_tree_single);
+		}else{
+			getEle('voice_haishui').pause();
+			createjs.Ticker.setFPS(40);
+			main.instance.visible=false;
+			main.instance_1.visible=false;
+			main.instance_2.visible=false;
+			main.instance_3.visible=false;
+			main.instance_4.visible=true;
+			main.instance_4.play();
+			main.instance_5.visible=true;
+			createjs.Ticker.removeEventListener("tick", tick_water_end);
+				
+			
+		}
+		main.instance.addEventListener("mousedown",show_huoshan);
+		main.instance_1.addEventListener("mousedown",show_water);
+	}
+	function tick_tree_single(event){
+		if(main.instance_4.currentFrame==118){
+			createjs.Ticker.removeEventListener("tick", tick_tree_single);
+			main.instance_4.stop();
+			main.instance_2.visible=true;
+		}
+	}
+	function tree_end(){
+			main.instance_4.stop();
+			
+            addClass(getEle('forms'), 'show');
+			addClass(getEle('shares_btn'), 'show');
+
+	}
+	var huoshan_list=[];
+	var huoshan_xiangzi={};
+	function show_huoshan(event){
+		event.preventDefault();
+		createjs.Ticker.setFPS(60);
+		exportRoot.removeChild(main);
+		main = new lib.c_flag3();
+		exportRoot.addChild(main);
+		
+		main.bg.stop();
+		
+		//main.bg.instance_20.visible=false;
+		//main.bg.instance_22.visible=false;
+		//main.bg.instance_24.visible=false;
+		
+		huoshan_list=[
+		{s1:5,s2:23,s3:50,obj:main.bg.tanhuang1},
+		{s1:29,s2:100,s3:142,obj:main.bg.tanhuang2},
+		{s1:52,s2:170,s3:212,obj:main.bg.tanhuang3}];
+		huoshan_xiangzi={temp:false,open:false,dire:0,index:0,list:[405,482,525]};	
+		
+		huoshan_list[0].obj.stop();
+		huoshan_list[1].obj.stop();
+		huoshan_list[2].obj.stop();
+		
+		huoshan_list[0].obj.qiu2.visible=false;
+		huoshan_list[0].obj.qiu3.visible=false;
+		huoshan_list[1].obj.qiu.visible=false;
+		huoshan_list[1].obj.qiu3.visible=false;
+		huoshan_list[2].obj.qiu.visible=false;
+		huoshan_list[2].obj.qiu2.visible=false;
+				
+		
+		
+		main.msg.addEventListener("mousedown",function(){ main.removeChild(main.msg); });
+		huoshan_list[0].obj.addEventListener("mousedown",function(event){
+			mouse.index=0;
+			mousedown_huoshan(event);
+		});
+		huoshan_list[1].obj.addEventListener("mousedown",function(event){
+			mouse.index=1;
+			mousedown_huoshan(event);
+		});
+		huoshan_list[2].obj.addEventListener("mousedown",function(event){
+			mouse.index=2;
+			mousedown_huoshan(event);
+		});
+		
+		main.bg.instance.addEventListener("mousedown",function(event){
+			main.bg.play();
+		});
+		
+		
+	}
+	function mousedown_huoshan(event){
+		voice(getEle("voice_daji"),0.1,0);
+		huoshan_list[mouse.index].obj.gotoAndStop(1);
+		
+		event.preventDefault();
+		mouse.y=event.stageY;
+		stage.addEventListener("stagemousemove",mousemove_huoshan);
+		stage.addEventListener("stagemouseup",mouseup_huoshan);
+	}
+	function mousemove_huoshan(event){
+		event.preventDefault();
+		if(event.stageY>mouse.y && huoshan_list[mouse.index].obj.currentFrame<15){
+			huoshan_list[mouse.index].obj.gotoAndStop(huoshan_list[mouse.index].obj.currentFrame++);
+		}else if(huoshan_list[mouse.index].obj.currentFrame>1){
+			huoshan_list[mouse.index].obj.gotoAndStop(huoshan_list[mouse.index].obj.currentFrame--);
+		}
+	}
+	function mouseup_huoshan(event){
+		//console.log(huoshan_list[mouse.index].obj.currentFrame);
+		event.preventDefault();	
+		stage.removeEventListener("stagemousemove",mousemove_huoshan);
+		stage.removeEventListener("stagemouseup",mouseup_huoshan);
+		if(huoshan_list[mouse.index].obj.currentFrame>13||event.stageY>900){
+			setTimeout(function(){voice(getEle("voice_feng"),0.3,4000);},2000);
+			huoshan_list[mouse.index].obj.play();
+		}else{
+			main.bg.gotoAndStop(1);
+			huoshan_list[mouse.index].obj.gotoAndStop(1);
+		}
+	}
+	
+	function tanchu(){
+			console.log('tanchu');
+			main.bg.gotoAndStop(huoshan_list[mouse.index].s1-1);
+			main.bg.play();
+			console.log(main.bg.currentFrame);
+	}
+	function fashe(){
+			voice(getEle("voice_tanchu"),1,0);
+			main.bg.gotoAndStop(80);
+			main.bg.play();
+			console.log('fashe');
+				var img_src="";
+				switch(mouse.index){
+				case 0:
+					img_src="images/i_3_4.png";
+					break;
+				case 1:
+					img_src="images/i_3_3.png";
+					break;
+				case 2:
+					img_src="images/i_3_2.png";
+					break;
+					
+				}
+				main.bg.qiu.instance.initialize(img_src);
+		
+	}
+	function pengzhuang(){
+			main.bg.stop();
+	}
+	window.addEventListener('devicemotion', orientationListener, false);
+	
+	function shiban(){
+		main.bg.stop();
+		switch(mouse.index){
+			case 0:
+				break;
+			case 1:
+				main.bg.instance_1.price.instance.initialize("images/i_shiban_5.png");
+				main.bg.instance_1.title.instance.initialize("images/i_shiban_2.png");
+				break;
+			case 2:
+				main.bg.instance_1.price.instance.initialize("images/i_shiban_6.png");
+				main.bg.instance_1.title.instance.initialize("images/i_shiban_3.png");
+				break;
+				
+			break;
+		}
+	}
+	function shiban_end(){
+		main.bg.instance_1.stop();
+		main.bg.instance_1.instance.addEventListener("mousedown",show_huoshan);
+		main.bg.instance_1.instance_1.addEventListener("mousedown",show_shandong);
+	}
+	
+    function orientationListener(evt) {
+			  if (!evt.gamma && !evt.beta) {
+				evt.gamma = (evt.x * (180 / Math.PI));
+				evt.beta = (evt.y * (180 / Math.PI)); 
+				evt.alpha = (evt.z * (180 / Math.PI));
+			  }
+			  var gamma = evt.gamma
+			  var beta = evt.beta
+			  var alpha = evt.alpha
+			  
+			  if(evt.accelerationIncludingGravity){
+				gamma = event.accelerationIncludingGravity.x*10
+				beta = -event.accelerationIncludingGravity.y*10
+				alpha = event.accelerationIncludingGravity.z*10
+			  }
+			  
+			  if (this._lastGamma != gamma || this._lastBeta != beta) {
+				this._lastGamma = gamma;
+				this._lastBeta = beta;
+				if(gamma.toFixed(2)>30){//左
+					if(huoshan_xiangzi.dire==-1){
+						main.bg.play();	
+						huoshan_xiangzi.dire=0;
+					}
+				}else if(gamma.toFixed(2)<-30){//右
+					if(huoshan_xiangzi.dire==1){
+						main.bg.play();	
+						huoshan_xiangzi.dire=0;
+					}
+				}
+			  }
+			}
+	
+	var zhua1={};
+	var zhua2={};
+	var zhua3={};
+	var zhua4={};
+	var zhua5={};
+	var zhua_temp;
+	var zhua_obj={};
+	function show_shandong(){	
+		getEle("voice_feng").pause();
+		createjs.Ticker.setFPS(30);
+        exportRoot.removeChild(main);
+		main = new lib.c_flag5();
+		exportRoot.addChild(main);
+		
+		
+		zhua1={src:'images/i_5_16.png',s:130,e:150,flag:false,obj:main.instance_5.instance};
+		zhua2={src:'images/i_5_10.png',s:165,e:5,flag:false,obj:main.instance_5.instance_1};
+		zhua3={src:'images/i_5_17.png',s:35,e:45,flag:false,obj:main.instance_5.instance_2};
+		zhua4={src:'images/i_5_21.png',s:65,e:80,flag:false,obj:main.instance_5.instance_3};
+		zhua5={src:'images/i_5_22.png',s:90,e:120,flag:false,obj:main.instance_5.instance_4};
+		zhua_temp=false;
+		
+		
+		main.instance.visible=false;//msg
+		
+		//进度
+		main.instance_2.gangping.instance.instance.visible=false;
+		main.instance_2.gangping.instance.instance_1.visible=false;
+		main.instance_2.gangping.instance.instance_2.visible=false;
+		main.instance_2.gangping.instance.instance_3.visible=false;
+		main.instance_2.gangping.instance.instance_4.visible=false;
+		
+		//指针
+		main.instance_2.instance.play();
+		main.instance_2.instance_1.play();
+		main.instance_2.instance_2.stop();
+		main.instance_2.instance_3.stop();
+		main.instance_2.instance_4.stop();
+		main.instance_2.gangping.stop();
+		//球
+		main.instance_2.qiu.stop();
+		
+		//msg
+		main.instance_3.stop();
+		
+		main.instance_4.addEventListener("mousedown",show_shandong_animate);
+		
+	}
+	function zhua_check(frameIndex,o){
+		zhua_obj=o;
+		if(o.flag) return false;
+		if(o!=zhua2&&(frameIndex>o.s&&frameIndex<o.e)){
+			o.flag=true;
+		}
+		if(o==zhua2&&(frameIndex>o.s||frameIndex<o.e)){
+			o.flag=true;
+		}
+		return o.flag;
+	}
+	function zhua_stat(){
+		var zhua_count=0;
+		if(zhua1.flag) zhua_count++;
+		if(zhua2.flag) zhua_count++;
+		if(zhua3.flag) zhua_count++;
+		if(zhua4.flag) zhua_count++;
+		if(zhua5.flag) zhua_count++;
+		if(zhua_count>0){
+			main.instance_2.gangping.instance.instance_4.visible=true;
+		}
+		if(zhua_count>1){
+			main.instance_2.gangping.instance.instance_3.visible=true;
+		}
+		if(zhua_count>2){
+			main.instance_2.gangping.instance.instance_2.visible=true;
+		}
+		if(zhua_count>3){
+			main.instance_2.gangping.instance.instance_1.visible=true;
+		}
+		if(zhua_count>4){
+			main.instance_2.gangping.instance.instance.visible=true;
+			setTimeout(function(){
+				voice(getEle("voice_ok2"),0.5,0);
+				main.instance.visible=true;
+				dashu.feiliao=true;
+				main.instance_2.instance.stop();
+				main.instance_2.instance_2.stop();
+				main.instance_2.instance_3.stop();
+				main.instance_2.instance_4.stop();
+				main.instance_2.gangping.stop();
+				
+			},5000);
+			main.instance.instance_1.addEventListener("mousedown",show_tree);
+		}
+	}
+	function show_shandong_animate(event){
+		var frameIndex=main.instance_5.currentFrame;
+		console.log(frameIndex);
+		if(zhua_temp) return;
+		zhua_temp=true;
+		
+		var flag=false;
+		if(!zhua1.flag)
+			flag=zhua_check(frameIndex,zhua1);
+		if(!flag && !zhua2.flag)
+			flag=zhua_check(frameIndex,zhua2);
+		if(!flag && !zhua3.flag)
+			flag=zhua_check(frameIndex,zhua3);
+		if(!flag && !zhua4.flag)
+			flag=zhua_check(frameIndex,zhua4);
+		if(!flag && !zhua5.flag)
+			flag=zhua_check(frameIndex,zhua5);
+			
+		if(flag){
+			main.instance_3.gotoAndStop(1);
+			main.instance_3.play();
+			main.instance_3.instance.instance.instance.initialize(zhua_obj.src);
+			
+			setTimeout(function(){
+				zhua_obj.obj.visible=false;//隐藏箱子
+			},700);
+			setTimeout(function(){
+				main.instance_2.qiu.play();
+				createjs.Ticker.addEventListener("tick", tick_qiu);
+				zhua_stat();
+				zhua_temp=false;
+			},1000);
+			setTimeout(function(){
+				main.instance_2.instance.play();
+				main.instance_2.instance_2.play();
+				main.instance_2.instance_3.play();
+				main.instance_2.instance_4.play();
+				main.instance_2.gangping.play();
+			},2000);
+		}else{
+			main.instance_3.gotoAndStop(65);
+			main.instance_3.play();
+		}
+	}
+	function tick_qiu(event){
+		if(main.instance_2.qiu.currentFrame==96){
+			createjs.Ticker.removeEventListener("tick", tick_qiu);
+			main.instance_2.qiu.stop();
+			return;
+		}
+	}
+	var station_status;
+	var station_2={};
+	var station_3={};
+	var station_4={};
+	var station_5={};
+	var station_t=null;
+	var station_tick_t=null;
+	var station_obj={};
+	var c_flag6_line_img="images/i_6_5_2.png";
+	function show_water(){
+		voice(getEle("voice_haishui"),0.3,0);
+		createjs.Ticker.setFPS(30);
+		exportRoot.removeChild(main);
+		main = new lib.c_flag6();
+		exportRoot.addChild(main);
+		
+		station_status=2;
+		station_2={x1:400,y1:200,x2:535,y2:360,flag:false,target1:43,target2:101};
+		station_3={x1:83,y1:265,x2:275,y2:415,flag:false,target1:132,target2:213};
+		station_4={x1:355,y1:495,x2:585,y2:611,flag:false,target1:244,target2:330};
+		station_5={x1:133,y1:700,x2:355,y2:805,flag:false,target1:357,target2:426};
+		
+		
+		main.instance_1.visible=false;//漂流瓶
+		main.instance_3.visible=false;
+		main.instance_4.visible=true;
+		main.instance_4.instance_1.visible=false;//隐藏人
+		main.instance_15.visible=false;
+		main.instance_6.visible=false;//任务完成按钮
+		station_obj=station_2;
+		
+		main.instance_2.stop();
+		setTimeout(function(){animate_hand();},2000);
+		
+		animate_pingzi();
+		main.instance_4.addEventListener("mousedown",mousedown_hand);
+	}
+	function animate_pingzi(){
+		main.instance.visible=true;
+		main.instance.play();
+	}
+	function pingzi_stop(){
+		main.instance.stop();
+	}
+	function station_check(x,y,station,action){
+		station.flag=false;
+		if(x>station.x1&&y>station.y1&&x<station.x2&&y<station.y2)
+		{
+			station.flag=true;
+			switch(station){
+				case station_2:
+					if(action) station_status=3;
+					break;
+				case station_3:
+					if(!station_2.flag) station.flag=false;
+					if(action) station_status=4;
+					break;
+				case station_4:
+					if(!station_3.flag) station.flag=false;
+					if(action) station_status=5;
+					break;
+				case station_5:
+					if(!station_4.flag) station.flag=false;
+					if(action) station_status=6;
+					break;
+			}
+		}
+		return station.flag;
+	}
+	function mousedown_hand(event){
+		main.instance_3.visible=true;
+		main.instance_3.x=event.stageX;
+		main.instance_3.y=event.stageY;
+		event.preventDefault();
+		clearTimeout(station_t);
+		clearTimeout(station_tick_t);
+		main.instance_2.visible=false;//手
+		main.instance_5.visible=false;//op
+		stage.addEventListener("stagemousemove",mousemove_hand);
+		stage.addEventListener("stagemouseup",mouseup_hand);
+		
+	}
+	function mousemove_hand(event){
+		event.preventDefault();
+		//console.log(event.stageX+'---'+event.stageX);
+		main.instance_3.x=event.stageX;
+		main.instance_3.y=event.stageY;
+		var flag=false;
+		switch(station_status){
+			case 2:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_2,false);
+			main.instance_13.visible=flag?false:true;
+			break;
+			case 3:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_3,false);
+			main.instance_11.visible=flag?false:true;
+			break;
+			case 4:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_4,false);
+			main.instance_9.visible=flag?false:true;
+			break;
+			case 5:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_5,false);
+			main.instance_7.visible=flag?false:true;
+			break;
+			
+		}
+		
+		
+	}
+	function mouseup_hand(event){
+		event.preventDefault();	
+		stage.removeEventListener("stagemousemove",mousemove_hand);
+		stage.removeEventListener("stagemouseup",mouseup_hand);
+		
+		var flag=false;
+		station_obj=null;
+		switch(station_status){
+			case 2:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_2,true);
+			station_obj=station_3;
+			break;
+			case 3:
+			createjs.Ticker.removeEventListener("tick", animate_hand_tick);
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_3,true);
+			station_obj=station_4;
+			break;
+			case 4:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_4,true);
+			station_obj=station_5;
+			break;
+			case 5:
+			flag=station_check(main.instance_3.x,main.instance_3.y,station_5,true);
+			
+				if(flag){
+				main.instance_6.visible=true;
+				main.instance_6.addEventListener("mousedown",function(){
+					main.instance.visible=false;//关闭瓶子状态
+					show_water_end();
+					//createjs.Ticker.removeEventListener("tick", animate_hand_tick);
+				});
+				
+			}
+			break;
+			
+		}
+		main.instance_3.visible=false;
+		if(flag){
+			animate_pingzi();
+			main.instance_4.play();
+			if(station_status!=6){
+				station_t=setTimeout(function(){
+					//animate_hand();
+				},1500);
+				}
+			}
+	}
+	function animate_hand(){
+		main.instance_2.visible=true;//手
+		main.instance_2.gotoAndStop(station_obj.target1);
+		main.instance_2.play();
+		main.instance_5.visible=true;//op
+		createjs.Ticker.addEventListener("tick", animate_hand_tick);
+	}
+	function animate_hand_tick(event){
+		if(main.instance_2.currentFrame==station_obj.target2){
+				main.instance_2.play();
+			station_tick_t=setTimeout(function(){
+				main.instance_2.gotoAndStop(station_obj.target1);
+				main.instance_2.play();
+			},700);
+		}
+	}
+	function show_water_end(){
+		main.instance_1.visible=true;
+		main.instance_1.instance_2.visible=false;//去灌溉树苗按钮
+		main.instance_1.instance_1.visible=false;//信息
+		
+		main.instance_1.instance.addEventListener("mousedown",close_msg);
+		
+		
+		main.instance_1.instance_2.addEventListener("mousedown",show_end);
+		
+		main.instance_1.instance_1.stop();
+		main.instance_1.instance_5.addEventListener("mousedown",show_message);
+	
+	}
+	
+	function close_msg(event){
+		main.instance_1.instance.visible=false;
+	}
+	function show_message(){
+		main.instance_1.instance_5.removeEventListener("mousedown",show_message);
+		main.instance_1.instance.visible=false;
+		main.instance_1.instance_1.visible=true;
+		main.instance_1.instance_1.gotoAndStop(1);
+		
+		main.instance_1.instance_1.play();
+		createjs.Ticker.setFPS(120);
+		createjs.Ticker.addEventListener("tick", tick_message);
+	}
+	function tick_message(event){
+		if(main.instance_1.instance_1.currentFrame==42){
+			createjs.Ticker.removeEventListener("tick", tick_message);
+			main.instance_1.instance_1.stop();
+			main.instance_1.instance_1.instance.addEventListener("mousedown",function(event){
+				createjs.Ticker.setFPS(60);
+				main.instance_1.instance_1.visible=false;//关闭信息
+				main.instance_1.instance_2.gotoAndStop(1);
+				main.instance_1.instance_2.play();
+				createjs.Ticker.addEventListener("tick", tick_water_end);
+				
+				main.instance_1.instance_2.visible=true;//去灌溉树苗按钮
+			});
+			return;
+		}
+	}
+	function tick_water_end(event){
+	console.log(main.instance_1.instance_2.currentFrame);
+		if(main.instance_1.instance_2.currentFrame==19){
+			createjs.Ticker.removeEventListener("tick", tick_water_end);
+			main.instance_1.instance_2.stop();
+			return;
+		}
+	}
+	function show_end(event){
+		dashu.water=true;
+		show_tree(event);
+	}
+
+	function shares(){
+		getEle('shares').style.display='block';
+	}
+	function closeshares(){
+		getEle('shares').style.display='none';
+	}
+	function isMobile(s) 
+	{
+		var patrn=/^\s*(15\d{9}|13[0-9]\d{8})\s*$/;
+		if(!patrn.exec(s))
+		{
+			return false;
+		}
+		return true;
+	} 
+	function parastr(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null)
+			return unescape(r[2]);
+		return null;
+	}
+	$(function(){
+		$('.inputSubmit').click(function(){
+			var username=$('#username').val();
+			var telephone=$('#telephone').val();
+			if(username.length<3){
+				alert('请填写完整信息!');
+				return false;
+			}
+			if(!isMobile(telephone)){
+				alert('手机号格式错误!');
+				return false;
+			}
+			$.ajax({
+				url:'insert_info.php?regname='+username+'&iphone='+telephone+'&type='+parastr('type'),
+				success:function(data){
+					var jsonobj=eval("("+data+")");
+					if(jsonobj=="0"){
+					if(confirm("您的信息已提交成功!是否关闭当前网页?")){
+						window.close();
+					}
+					}else if(jsonobj=="-1"){
+						alert('该手机号已注册,请重新填写!');
+					}else{
+						alert("网络错误，请稍后再试！")
+					}
+				}
+			});
+		});
+	})
+	var isMusic=false;
+	function music(){
+		if(!isMusic){
+			getEle('btn_music').src="images/mu1.png";
+			getEle('voice_bg').play();
+			isMusic=true;
+		}else{
+			getEle('btn_music').src="images/mu2.png";
+			getEle('voice_bg').pause();
+			isMusic=false;
+		}
+	}
+	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+
+	function hengshuping() {
+        if (window.orientation == 90 || window.orientation == -90) {
+		document.body.style.display="none";
+        } else {
+		document.body.style.display="block";
+        }
+    }
+	</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fb6c32b2ff5a2293d5b181bb9cd3c781";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+  _hmt.push(['_trackEvent', "亚马逊游戏", "页面加载",parastr('type'), ""]);
+})();
+
+</script>
+
+  
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+
+<div id="shares" onclick="closeshares();">
+</div>
+<img style="display:none;" id="btn_music" onclick="music()" src="images/mu2.png"/>
+<div id="forms"><form>
+<input id="username" class="inputText" type="text" />
+<input id="telephone" class="inputText" type="num" style="top: 65%;" />
+<input type="button" class="inputSubmit" value="" />
+
+</form></div>
+<div id="shares_btn"><a id="btn_again" href=""></a><a onclick="shares();" id="btn_share"></a></div>
+	<div style="position: absolute; z-index: 1; width:100%; height: 100%; overflow: hidden;">
+    <canvas id="canvas" width="640" height="960" style="background: #fff; height:100%; width:100%;position:absolute; left:0; top:0; z-index:1;"></canvas>
+</div>
+
+<div>
+    <audio id="voice_bg" preload="preload" loop="loop" style="display: none;">
+        <source src="audio/bg.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_bird" preload="preload" style="display: none;">
+        <source src="audio/bird.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_boli" preload="preload" style="display: none;">
+        <source src="audio/boli.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_daji" preload="preload" style="display: none;">
+        <source src="audio/daji.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_feng" preload="preload" style="display: none;">
+        <source src="audio/feng.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_haishui" preload="preload" style="display: none;">
+        <source src="audio/haishui.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_ok1" preload="preload" style="display: none;">
+        <source src="audio/ok1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_ok2" preload="preload" style="display: none;">
+        <source src="audio/ok2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_za" preload="preload" style="display: none;">
+        <source src="audio/za.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_tanchu" preload="preload" style="display: none;">
+        <source src="audio/tanchu.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_xiao" preload="preload" style="display: none;">
+        <source src="audio/xiao.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_fei" preload="preload" style="display: none;">
+        <source src="audio/fei.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice_chujing" preload="preload" style="display: none;">
+        <source src="audio/chujing.mp3" type="audio/mpeg">
+    </audio>
+</div>
+</body>
+</html>
