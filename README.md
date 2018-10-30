@@ -1,3 +1,3 @@
 # amazon-logistics
 canavas+createjs小游戏
-LINKS：[http://mobile.lenovo-idea.com/2015/amazon/]
+LINKS：[LINKS](http://47.105.62.221/amazon-logistics/index.html)
